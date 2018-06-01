@@ -2,22 +2,28 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { TerminadosComponent } from '../pages/terminados/terminados.component';
+import { PendientesComponent } from '../pages/pendientes/pendientes.component';
+import { ListaDeseosService } from './services/lista-deseos.service';
+import { AgregarComponent } from '../pages/agregar/agregar.component';
+import { PlaceholderPipe } from './pipes/placeholder.pipe';
+import { DetalleComponent } from '../pages/detalle/detalle.component';
+import { PendientesPipe } from './pipes/pendientes.pipe';
 
 @NgModule({
   declarations: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    MyApp,  
+    TabsPage,
+    TerminadosComponent,
+    PendientesComponent,
+    AgregarComponent,
+    PlaceholderPipe,
+    DetalleComponent,
+    PendientesPipe
+    
   ],
   imports: [
     BrowserModule,
@@ -26,13 +32,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    TabsPage,
+    TerminadosComponent,
+    PendientesComponent,
+    AgregarComponent,
+    DetalleComponent
+    
   ],
   providers: [
     StatusBar,
+    ListaDeseosService,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
